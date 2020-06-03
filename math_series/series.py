@@ -1,4 +1,22 @@
+import time
+
+
 fib_cache = {}
+
+
+def timing(func):
+    """Decorator for counting function execution time
+    Thanks to: https://stackoverflow.com/questions/5478351/python-time-measure-function
+    """
+    def wrap(*args):
+        time1 = time.time()
+        ret = func(*args)
+        time2 = time.time()
+        print('{:s} function took {:.3f} ms'.format(
+            func.__name__, (time2 - time1) * 1000.0))
+
+        return ret
+    return wrap
 
 
 def fibonacci(n: int) -> int:
@@ -39,3 +57,21 @@ def fib_memo(n: int) -> int:
     fib_cache[n] = val
 
     return val
+
+
+# Measuring execution time
+n = 30
+
+
+@timing
+def time_fibonacci():
+    print(fibonacci(n))
+
+
+@timing
+def time_fib_memo():
+    print(fib_memo(n))
+
+
+time_fibonacci()
+time_fib_memo()
