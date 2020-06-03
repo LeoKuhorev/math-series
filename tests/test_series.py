@@ -1,5 +1,5 @@
 from math_series import __version__
-from math_series.series import fib_memo, fibonacci
+from math_series.series import fib_memo, fibonacci, lucas_memo
 
 
 class TestFibonacci:
@@ -33,7 +33,7 @@ class TestFibonacci:
     # Edge case
     def test_fibonacci_pass_5(self):
         actual = fibonacci(-1)
-        expected = 'Number should be positive'
+        expected = 'Number must be positive'
         assert actual == expected
 
     # Fail case
@@ -84,7 +84,7 @@ class TestFibMemo:
     # Edge case
     def test_fib_memo_pass_5(self):
         actual = fib_memo(-1)
-        expected = 'Number should be positive'
+        expected = 'Number must be positive'
         assert actual == expected
 
     # Fail case
@@ -102,5 +102,56 @@ class TestFibMemo:
     # Fail case
     def test_fib_memo_fail_3(self):
         actual = fib_memo(22)
+        expected = 22
+        assert actual != expected
+
+
+class TestFibLucas:
+
+    # Pass test
+    def test_lucas_memo_pass_1(self):
+        actual = lucas_memo(3)
+        expected = 3
+        assert actual == expected
+
+    # Pass test
+    def test_lucas_memo_pass_2(self):
+        actual = lucas_memo(7)
+        expected = 18
+        assert actual == expected
+
+    # Pass test
+    def test_lucas_memo_pass_3(self):
+        actual = lucas_memo(22)
+        expected = 24476
+        assert actual == expected
+
+    # Edge case
+    def test_lucas_memo_pass_4(self):
+        actual = lucas_memo(1)
+        expected = 2
+        assert actual == expected
+
+    # Edge case
+    def test_lucas_memo_pass_5(self):
+        actual = lucas_memo(-1)
+        expected = 'Number must be greater that 0'
+        assert actual == expected
+
+    # Fail case
+    def test_lucas_memo_fail_1(self):
+        actual = lucas_memo(3)
+        expected = 2
+        assert actual != expected
+
+    # Fail case
+    def test_lucas_memo_fail_2(self):
+        actual = lucas_memo(-1)
+        expected = -1
+        assert actual != expected
+
+    # Fail case
+    def test_lucas_memo_fail_3(self):
+        actual = lucas_memo(22)
         expected = 22
         assert actual != expected

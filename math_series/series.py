@@ -2,6 +2,7 @@ import time
 
 
 fib_cache = {}
+lucas_cache = {}
 
 
 def timing(func):
@@ -29,7 +30,7 @@ def fibonacci(n: int) -> int:
         int: Value for the n-th number of fibonacci sequence
     """
     if n < 0:
-        return 'Number should be positive'
+        return 'Number must be positive'
     elif n < 2:
         return n
     else:
@@ -48,13 +49,38 @@ def fib_memo(n: int) -> int:
     if n in fib_cache:
         val = fib_cache[n]
     elif n < 0:
-        val = 'Number should be positive'
+        val = 'Number must be positive'
     elif n < 2:
         val = n
     else:
         val = fib_memo(n - 1) + fib_memo(n - 2)
 
     fib_cache[n] = val
+
+    return val
+
+
+def lucas_memo(n: int) -> int:
+    """Function for counting n-th number of Lucas sequence using memoization
+
+    Args:
+        n (int): Number of Lucas sequence
+
+    Returns:
+        int: Value for the n-th number of Lucas sequence
+    """
+    if n in lucas_cache:
+        val = lucas_cache[n]
+    elif n < 1:
+        val = 'Number must be greater that 0'
+    elif n == 1:
+        val = 2
+    elif n == 2:
+        val = 1
+    else:
+        val = lucas_memo(n - 1) + lucas_memo(n - 2)
+
+    lucas_cache[n] = val
 
     return val
 
