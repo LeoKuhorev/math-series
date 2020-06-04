@@ -19,4 +19,4 @@ A set of functions that return the value of the element at the given index from 
 - lucas_memo(n) - Function for counting n-th number of Lucas sequence using memoization
 - sum_series(n, prev, curr) - Function for calculating a value for the given index of the sequence starting with arbitrary values
 
-<a href="#">Link to PR</a>
+<a href="https://github.com/LeoKuhorev/math-series/pull/2">Link to PR</a>
