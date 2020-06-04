@@ -21,7 +21,7 @@ def timing(func):
 
 
 def fibonacci(n: int) -> int:
-    """Function for counting n-th number of fibonacci sequence using memoization
+    """Function for counting n-th number of fibonacci sequence
 
     Args:
         n (int): Number of fibonacci sequence
@@ -101,7 +101,7 @@ def sum_series(n: int, prev: int = 0, curr: int = 1) -> int:
     return curr
 
 
-# Measuring execution time
+# Measuring execution time for the element
 n = 30
 
 
