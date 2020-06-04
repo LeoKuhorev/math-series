@@ -10,10 +10,11 @@ A set of functions that return the value of the element at the given index from 
 ## Architecture
 
 - Python 3.8
+- Poetry 1.0.5
 
 ## API
 
-- timing(func) - Helper function (decorator) fo counting functions execution time
+- timing(func) - Helper function (decorator) for counting functions execution time
 - fibonacci(n) - Function for counting n-th number of fibonacci sequence
 - fib_memo(n) - Function for counting n-th number of fibonacci sequence using memoization
 - lucas_memo(n) - Function for counting n-th number of Lucas sequence using memoization
