@@ -1,5 +1,5 @@
 from math_series import __version__
-from math_series.series import fib_memo, fibonacci, lucas_memo
+from math_series.series import fib_memo, fibonacci, lucas_memo, sum_series
 
 
 class TestFibonacci:
@@ -56,6 +56,8 @@ class TestFibonacci:
 
 
 class TestFibMemo:
+    """Test class for fibonacci function with memoization
+    """
 
     # Pass test
     def test_fib_memo_pass_1(self):
@@ -107,6 +109,8 @@ class TestFibMemo:
 
 
 class TestFibLucas:
+    """Test class for Lucas sequence function
+    """
 
     # Pass test
     def test_lucas_memo_pass_1(self):
@@ -153,5 +157,52 @@ class TestFibLucas:
     # Fail case
     def test_lucas_memo_fail_3(self):
         actual = lucas_memo(22)
+        expected = 22
+        assert actual != expected
+
+
+class TestSumSeries:
+    """Test class for sum_series function
+    """
+
+    # Pass test
+    def test_sum_series_pass_1(self):
+        actual = sum_series(3)
+        expected = 3
+        assert actual == expected
+
+    # Pass test
+    def test_sum_series_pass_2(self):
+        actual = sum_series(7)
+        expected = 21
+        assert actual == expected
+
+    # Pass test
+    def test_sum_series_pass_3(self):
+        actual = sum_series(22)
+        expected = 28657
+        assert actual == expected
+
+    # Edge case
+    def test_sum_series_pass_4(self):
+        actual = sum_series(1)
+        expected = 1
+        assert actual == expected
+
+    # Fail case
+    def test_sum_series_fail_1(self):
+        actual = sum_series(3)
+        expected = 2
+        assert actual != expected
+
+    # Fail case
+    def test_sum_series_fail_2(self):
+        actual = sum_series(-1)
+        expected = -1
+        assert actual != expected
+
+    # Fail case
+    def test_sum_series_fail_3(self):
+        actual = sum_series(22)
         expected = 22
         assert actual != expected

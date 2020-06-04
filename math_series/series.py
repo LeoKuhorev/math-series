@@ -85,6 +85,22 @@ def lucas_memo(n: int) -> int:
     return val
 
 
+def sum_series(n: int, prev: int = 0, curr: int = 1) -> int:
+    """Function for calculating a value for the given index of the sequence starting with arbitrary values
+
+    Args:
+        n (int): number of element
+        prev (int, optional): value of the first element. Defaults to 0.
+        curr (int, optional): value of the second element. Defaults to 1.
+
+    Returns:
+        int: Value of the element at given index
+    """
+    for i in range(n):
+        prev, curr = curr, prev + curr
+    return curr
+
+
 # Measuring execution time
 n = 30
 
