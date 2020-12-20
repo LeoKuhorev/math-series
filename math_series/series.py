@@ -60,6 +60,30 @@ def fib_memo(n: int) -> int:
     return val
 
 
+def fib_bottom_up(n: int) -> int:
+    """Get n-th fibonacci number
+
+    Args:
+        n (int): 
+
+    Raises:
+        ValueError: If negative number passed in
+
+    Returns:
+        int: 
+    """
+    if n < 0:
+        raise ValueError('Number must be positive')
+    elif n < 2:
+        return n
+
+    dp = [0, 1]
+    for i in range(2, n+1):
+        dp.append(dp[i-1] + dp[i-2])
+
+    return dp[n]
+
+
 def lucas_memo(n: int) -> int:
     """Function for counting n-th number of Lucas sequence using memoization
 
@@ -115,5 +139,12 @@ def time_fib_memo():
     print(fib_memo(n))
 
 
-time_fibonacci()
-time_fib_memo()
+@timing
+def time_fib_bottom_up():
+    print(fib_bottom_up(n))
+
+
+if __name__ == "__main__":
+    time_fibonacci()
+    time_fib_memo()
+    time_fib_bottom_up()

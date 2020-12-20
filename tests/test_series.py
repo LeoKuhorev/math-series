@@ -1,5 +1,7 @@
 from math_series import __version__
-from math_series.series import fib_memo, fibonacci, lucas_memo, sum_series
+import pytest
+from math_series.series import (
+    fib_bottom_up, fib_memo, fibonacci, lucas_memo, sum_series)
 
 
 class TestFibonacci:
@@ -104,6 +106,50 @@ class TestFibMemo:
     # Fail case
     def test_fib_memo_fail_3(self):
         actual = fib_memo(22)
+        expected = 22
+        assert actual != expected
+
+
+class TestFibBottomUp:
+    # Pass test
+    def test_fib_bottom_up_pass_1(self):
+        actual = fib_bottom_up(3)
+        expected = 2
+        assert actual == expected
+
+    # Pass test
+    def test_fib_bottom_up_pass_2(self):
+        actual = fib_bottom_up(7)
+        expected = 13
+        assert actual == expected
+
+    # Pass test
+    def test_fib_bottom_up_pass_3(self):
+        actual = fib_bottom_up(22)
+        expected = 17711
+        assert actual == expected
+
+    # Edge case
+    def test_fib_bottom_up_pass_4(self):
+        actual = fib_bottom_up(0)
+        expected = 0
+        assert actual == expected
+
+    # Edge case
+    def test_fib_bottom_up_pass_5(self):
+        with pytest.raises(ValueError) as err:
+            assert fib_bottom_up(-1)
+        assert str(err.value) == 'Number must be positive'
+
+    # Fail case
+    def test_fib_bottom_up_fail_1(self):
+        actual = fib_bottom_up(3)
+        expected = 3
+        assert actual != expected
+
+    # Fail case
+    def test_fib_bottom_up_fail_3(self):
+        actual = fib_bottom_up(22)
         expected = 22
         assert actual != expected
 
